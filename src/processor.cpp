@@ -1,6 +1,7 @@
 #include "processor.h"
 #include "linux_parser.h"
 
+
 using std::stol;
 using std::string;
 using std::to_string;
@@ -33,5 +34,6 @@ float Processor::Utilization() {
     LinuxParser::Jiffies( totalTime);
     LinuxParser::IdleJiffies( idleAllTime);
     cpuUtil = (deltaTotalTime - deltaIdleTime)/deltaTotalTime;
+
     return cpuUtil; 
     }
