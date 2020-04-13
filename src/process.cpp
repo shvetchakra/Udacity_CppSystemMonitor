@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "process.h"
-#include "linux_parser.h"
 
 using std::string;
 using std::to_string;
@@ -27,11 +26,7 @@ string Process::Ram() { return string(); }
 string Process::User() { return string(); }
 
 // TODO: Return the age of this process (in seconds)
-long int Process::UpTime() { 
-    int pid;
-    pid = Pid();
-    return LinuxParser::UpTime(pid);
- }
+long int Process::UpTime() { return 0; }
 
 // TODO: Overload the "less than" comparison operator for Process objects
 // REMOVE: [[maybe_unused]] once you define the function
