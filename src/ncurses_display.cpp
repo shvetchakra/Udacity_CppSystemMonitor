@@ -69,6 +69,8 @@ void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
   mvwprintw(window, row, time_column, "TIME+");
   mvwprintw(window, row, command_column, "COMMAND");
   wattroff(window, COLOR_PAIR(2));
+  if (n > processes.size())
+    n = processes.size();
   for (int i = 0; i < n; ++i) {
     mvwprintw(window, ++row, pid_column, to_string(processes[i].Pid()).c_str());
     mvwprintw(window, row, user_column, processes[i].User().c_str());
@@ -87,7 +89,8 @@ void NCursesDisplay::Display(System& system, int n) {
   noecho();       // do not print input values
   cbreak();       // terminate ncurses on ctrl + c
   start_color();  // enable color
-
+  if(n > system.Processes().size())
+    n = system.Processes().size();
   int x_max{getmaxx(stdscr)};
   WINDOW* system_window = newwin(9, x_max - 1, 0, 0);
   WINDOW* process_window =

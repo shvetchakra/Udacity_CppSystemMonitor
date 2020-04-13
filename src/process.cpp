@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "process.h"
+#include "linux_parser.h"
 
 using std::string;
 using std::to_string;
@@ -20,7 +21,15 @@ float Process::CpuUtilization() { return 0; }
 string Process::Command() { return string(); }
 
 // TODO: Return this process's memory utilization
-string Process::Ram() { return string(); }
+string Process::Ram() { 
+    string ramInKB = LinuxParser::Ram(pid_);
+    if (ramInKB != ""){
+    long ramKB = std::stol(ramInKB);
+    string ramInMB = to_string(ramKB/1024);
+    return ramInMB;
+    }
+    return "";
+     }
 
 // TODO: Return the user (name) that generated this process
 string Process::User() { return string(); }
