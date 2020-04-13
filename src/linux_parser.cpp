@@ -5,12 +5,16 @@
 
 
 #include "linux_parser.h"
-
+#include "processor.h"
 using std::stof;
 using std::string;
 using std::to_string;
 using std::vector;
-
+namespace LinuxParser {
+  long jiffies_{0};
+  long activeJiffies_{0};
+  long idleJiffies_{0};
+}
 // DONE: An example of how to read data from the filesystem
 string LinuxParser::OperatingSystem() {
   string line;
@@ -112,18 +116,18 @@ long LinuxParser::UpTime() {
 }
 
 // TODO: Read and return the number of jiffies for the system
-long LinuxParser::Jiffies() { return 0; }
-
+long LinuxParser::Jiffies() { return jiffies_; }
+void LinuxParser::Jiffies(long j){ jiffies_ = j;}
 // TODO: Read and return the number of active jiffies for a PID
 // REMOVE: [[maybe_unused]] once you define the function
 long LinuxParser::ActiveJiffies(int pid[[maybe_unused]]) { return 0; }
 
 // TODO: Read and return the number of active jiffies for the system
-long LinuxParser::ActiveJiffies() { return 0; }
-
+long LinuxParser::ActiveJiffies() { return activeJiffies_; }
+void LinuxParser::ActiveJiffies(long j){activeJiffies_ = j;};
 // TODO: Read and return the number of idle jiffies for the system
-long LinuxParser::IdleJiffies() { return 0; }
-
+long LinuxParser::IdleJiffies() { return idleJiffies_; }
+void LinuxParser::IdleJiffies(long j){idleJiffies_ = j;}
 // TODO: Read and return CPU utilization
 vector<string> LinuxParser::CpuUtilization() { 
   
@@ -153,8 +157,6 @@ vector<string> LinuxParser::CpuUtilization() {
   }
   return cpuStatesVector; 
 
-
-  ;
   }
 
 // TODO: Read and return the total number of processes

@@ -45,6 +45,12 @@ long Jiffies();
 long ActiveJiffies();
 long ActiveJiffies(int pid);
 long IdleJiffies();
+void Jiffies(long j);
+void ActiveJiffies(long j);
+void IdleJiffies(long j);
+extern long jiffies_;
+extern long activeJiffies_;
+extern long idleJiffies_;
 
 // Processes
 std::string Command(int pid);

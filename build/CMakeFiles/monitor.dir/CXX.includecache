@@ -59,6 +59,8 @@ vector
 -
 linux_parser.h
 /mnt/c/Users/chakra/Documents/GitHub/CppND-System-Monitor/src/linux_parser.h
+processor.h
+/mnt/c/Users/chakra/Documents/GitHub/CppND-System-Monitor/src/processor.h
 
 /mnt/c/Users/chakra/Documents/GitHub/CppND-System-Monitor/src/main.cpp
 ncurses_display.h
