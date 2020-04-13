@@ -18,6 +18,9 @@ const std::string kVersionFilename{"/version"};
 const std::string kOSPath{"/etc/os-release"};
 const std::string kPasswordPath{"/etc/passwd"};
 
+//Utility
+long UpTime(std::string s);
+
 // System
 float MemoryUtilization();
 long UpTime();
