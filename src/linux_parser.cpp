@@ -119,8 +119,8 @@ long LinuxParser::UpTime() {
 long LinuxParser::Jiffies() { return jiffies_; }
 void LinuxParser::Jiffies(long j){ jiffies_ = j;}
 // TODO: Read and return the number of active jiffies for a PID
-// REMOVE: [[maybe_unused]] once you define the function
-long LinuxParser::ActiveJiffies(int pid)[[maybe_used]] { 
+
+long LinuxParser::ActiveJiffies(int pid[[maybe_unused]]) { 
   return 0;
    }
 
@@ -212,7 +212,7 @@ int LinuxParser::RunningProcesses() {
  }
 
 // TODO: Read and return the command associated with a process
-// REMOVE: [[maybe_unused]] once you define the function
+
 string LinuxParser::Command(int pid) { 
   string cmd;
   string key, value;
@@ -225,7 +225,7 @@ string LinuxParser::Command(int pid) {
   return string(); }
 
 // TODO: Read and return the memory used by a process
-// REMOVE: [[maybe_unused]] once you define the function
+
 string LinuxParser::Ram(int pid) { 
   
   string ram;
@@ -251,7 +251,7 @@ string LinuxParser::Ram(int pid) {
   }
 
 // TODO: Read and return the user ID associated with a process
-// REMOVE: [[maybe_unused]] once you define the function
+
 string LinuxParser::Uid(int pid) { 
   
   string uid;
@@ -279,7 +279,7 @@ string LinuxParser::Uid(int pid) {
   }
 
 // TODO: Read and return the user associated with a process
-// REMOVE: [[maybe_unused]] once you define the function
+
 string LinuxParser::User(int pid) { 
   string uid = LinuxParser::Uid(pid);
   string line;
@@ -306,7 +306,7 @@ string LinuxParser::User(int pid) {
 
 
 // TODO: Read and return the uptime of a process
-// REMOVE: [[maybe_unused]] once you define the function
+
 long LinuxParser::UpTime(int pid) { 
   
   int count = 20;
